@@ -11,24 +11,18 @@ class ProductManager {
         this.stock = stock;
     };
 
-    addProduct() {
+    addProduct(product) {
         let id = 0
         products.forEach(p => {
             if(p.id > id) {
                 id = p.id
             }
         })
-        const codeRepetido = products.find(p => p.code == this.code)
-        if(this.title && this.description && this.price && this.thumbnail && this.code && this.stock != '' && !codeRepetido){
-            products.push({
-                title: this.title,
-                description: this.description,
-                price: this.price,
-                thumbnail: this.thumbnail,
-                code: this.code,
-                stock: this.stock,
-                id: id++
-            })
+        const codeRepetido = products.find(p => p.code == product.code)
+        if(product.title && product.description && product.price && product.thumbnail && product.code && product.stock != '' && !codeRepetido){
+            products.push({ ...product, id: id++ })
+        } else {
+            console.log('Complete all fields')
         }
     };
 
