@@ -1,18 +1,10 @@
 import express from 'express';
-import ProductManager, { arrayProducts } from "./manager/ProductManager.js";
+import ProductManager, { initializeProducts } from "./manager/ProductManager.js";
 
 const manager = new ProductManager('./src/files/products.json');
 
-const addProducts = async() => {
-
-    for (let i = 0; i < arrayProducts.length; i++) {
-        const element = arrayProducts[i];
-        await manager.addProduct(element);
-    };
-
-};
-
-addProducts();
+// ejecutar solo si no existe el archivo products.json
+// initializeProducts(manager);
 
 const app = express();
 
@@ -24,7 +16,7 @@ app.get('/products', async (req, res) => {
     if(limit) {
         products = products.slice(0, Number(limit));
     }
-    res.send({products});
+    res.send(products);
 });
 
 app.get('/products/:pid', async (req, res) => {

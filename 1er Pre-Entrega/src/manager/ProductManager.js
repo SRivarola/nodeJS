@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs';
 
 class ProductManager {
 
@@ -13,9 +13,13 @@ class ProductManager {
             const products = await this.getProducts();
             
             //validacion de que existen todos los campos! 
-            if(!product.title || !product.description || !product.price || !product.thumbnail || !product.code || product.stock == undefined){
+            if(!product.title || !product.description || !product.price || !product.code || product.stock == undefined){
                 return console.log('Complete all fields');
             };
+
+            if(!product.thumbnail) product.thumbnail = []
+
+            if(!product.status) product.status = true
             
             //verificacion de que el campo code no exista en otro producto
             const codeRepetido = products.find(p => p.code == product.code);
@@ -139,6 +143,7 @@ const arrayProducts = [
         title: "Jack Daniel's",
         description: "Whiskey Jack Daniel's Old Nº 7 750ml",
         price: 13635,
+        status: true,
         thumbnail: 'url imagen',
         code: "000001",
         stock: 50
@@ -147,6 +152,7 @@ const arrayProducts = [
         title: 'Jameson Black Barrel',
         description: 'Whiskey Jameson Black Barrel 700ml',
         price: 10675,
+        status: true,
         thumbnail: 'url imagen',
         code: "000002",
         stock: 50
@@ -155,6 +161,7 @@ const arrayProducts = [
         title: 'Chivas Regal',
         description: 'Whisky Chivas Regal Extra 13 Años, con estuche 750ml',
         price: 11136,
+        status: true,
         thumbnail: 'url imagen',
         code: "000003",
         stock: 50
@@ -163,6 +170,7 @@ const arrayProducts = [
         title: 'Johnnie Walker Black Label',
         description: 'Johnnie Walker Black Label 1L',
         price: 13955,
+        status: true,
         thumbnail: 'url imagen',
         code: "000004",
         stock: 50
@@ -171,6 +179,7 @@ const arrayProducts = [
         title: 'Buffalo Trace Bourbon',
         description: 'Whiskey Buffalo Trace Bourbon 750ml Kentucky American',
         price: 17100,
+        status: true,
         thumbnail: 'url imagen',
         code: "000005",
         stock: 50
@@ -179,6 +188,7 @@ const arrayProducts = [
         title: "Ballantine's",
         description: "Ballantine's Blended Scotch Finest 1L",
         price: 6213,
+        status: true,
         thumbnail: 'url imagen',
         code: "000006",
         stock: 50
@@ -187,6 +197,7 @@ const arrayProducts = [
         title: "Gran Old Parr",
         description: "Gran Old Parr De Luxe 750ml Scotch Blended",
         price: 9300,
+        status: true,
         thumbnail: 'url imagen',
         code: "000007",
         stock: 50
@@ -195,6 +206,7 @@ const arrayProducts = [
         title: "Buchanans Deluxe",
         description: "Buchanans Deluxe 12 años Scotch Blend 750ml",
         price: 11521,
+        status: true,
         thumbnail: 'url imagen',
         code: "000008",
         stock: 50
@@ -203,6 +215,7 @@ const arrayProducts = [
         title: "Scapa Skiren",
         description: "Scapa Skiren Single Malt Scotch 700ml",
         price: 20963,
+        status: true,
         thumbnail: 'url imagen',
         code: "000009",
         stock: 50
@@ -211,6 +224,7 @@ const arrayProducts = [
         title: "Jim Beam Black Full",
         description: "Jim Beam Black Full",
         price: 12126,
+        status: true,
         thumbnail: 'url imagen',
         code: "000010",
         stock: 50
