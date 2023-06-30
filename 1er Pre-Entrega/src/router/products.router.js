@@ -8,9 +8,7 @@ const manager = new ProductManager(`${__dirname}/files/products.json`);
 router.get('/', async (req, res) => {
     const { limit } = req.query;
     let products = await manager.getProducts();
-    if(limit) {
-        products = products.slice(0, Number(limit));
-    }
+    if(limit) products = products.slice(0, Number(limit));
     res.send({ status: 'success', payload: products });
 });
 
