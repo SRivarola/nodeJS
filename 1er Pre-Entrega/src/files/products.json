@@ -3,7 +3,9 @@
 		"title": "Jack Daniel's",
 		"description": "Whiskey Jack Daniel's Old Nº 7 750ml",
 		"price": 13635,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000001",
 		"status": true,
 		"stock": 50,
@@ -13,17 +15,21 @@
 		"title": "Jameson Black Barrel",
 		"description": "Whiskey Jameson Black Barrel 700ml",
 		"price": 10675,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000002",
 		"status": true,
-		"stock": 50,
+		"stock": 1000,
 		"id": 2
 	},
 	{
 		"title": "Chivas Regal",
 		"description": "Whisky Chivas Regal Extra 13 Años, con estuche 750ml",
 		"price": 11136,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000003",
 		"status": true,
 		"stock": 50,
@@ -33,7 +39,9 @@
 		"title": "Johnnie Walker Black Label",
 		"description": "Johnnie Walker Black Label 1L",
 		"price": 13955,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000004",
 		"status": true,
 		"stock": 50,
@@ -43,7 +51,9 @@
 		"title": "Buffalo Trace Bourbon",
 		"description": "Whiskey Buffalo Trace Bourbon 750ml Kentucky American",
 		"price": 17100,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000005",
 		"status": true,
 		"stock": 50,
@@ -53,7 +63,9 @@
 		"title": "Ballantine's",
 		"description": "Ballantine's Blended Scotch Finest 1L",
 		"price": 6213,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000006",
 		"status": true,
 		"stock": 50,
@@ -63,7 +75,9 @@
 		"title": "Gran Old Parr",
 		"description": "Gran Old Parr De Luxe 750ml Scotch Blended",
 		"price": 9300,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000007",
 		"status": true,
 		"stock": 50,
@@ -73,7 +87,9 @@
 		"title": "Buchanans Deluxe",
 		"description": "Buchanans Deluxe 12 años Scotch Blend 750ml",
 		"price": 11521,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000008",
 		"status": true,
 		"stock": 50,
@@ -83,7 +99,9 @@
 		"title": "Scapa Skiren",
 		"description": "Scapa Skiren Single Malt Scotch 700ml",
 		"price": 20963,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000009",
 		"status": true,
 		"stock": 50,
@@ -93,7 +111,9 @@
 		"title": "Jim Beam Black Full",
 		"description": "Jim Beam Black Full",
 		"price": 12125,
-		"thumbnail": ["url imagen"],
+		"thumbnail": [
+			"url imagen"
+		],
 		"code": "000010",
 		"status": true,
 		"stock": 50,

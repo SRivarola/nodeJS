@@ -15,12 +15,18 @@ router.get('/', async (req, res) => {
 router.get('/:pid', async (req, res) => {
     const productId = Number(req.params.pid);
     const product = await manager.getProductsById(productId)
+    if(!product) {
+        return res.status(400).send({ error: `The product with id: ${productId}, doesn't exist!` })
+    } 
     res.send({ status: 'success', payload: product })
 })
 
 router.post('/', async (req, res) => {
     const body = req.body;
     const product = await manager.addProduct(body)
+    if(!product) {
+        return res.status(400).send({ error: `The product could not be added, check the fields and try again!` })
+    } 
     res.send({ status: 'success', payload: product })
 })
 
@@ -28,12 +34,18 @@ router.put('/:pid', async (req, res) => {
     const productId = Number(req.params.pid);
     const body = req.body;
     const product = await manager.updateProduct({...body, id: productId})
+    if(!product) {
+        return res.status(400).send({ error: `Can't find the product with id: ${productId}` })
+    } 
     res.send({ status: 'success', payload: product })
 })
 
 router.delete('/:pid', async (req, res) => {
     const productId = Number(req.params.pid);
     const product = await manager.deleteProduct(productId)
+    if(!product) {
+        return res.status(400).send({ error: `Can't find the product with id: ${productId}` })
+    } 
     res.send({ status: 'success', payload: product })
 })
 

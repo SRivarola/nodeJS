@@ -14,18 +14,18 @@ class ProductManager {
             
             //validacion de que existen todos los campos! 
             if(!product.title || !product.description || !product.price || !product.code || product.stock == undefined){
-                return console.log('Complete all fields');
+                return null;
+            };
+
+            //verificacion de que el campo code no exista en otro producto
+            const codeRepetido = products.find(p => p.code == product.code);
+            if(codeRepetido) {
+                return null;
             };
 
             if(!product.thumbnail) product.thumbnail = []
 
             if(!product.status) product.status = true
-            
-            //verificacion de que el campo code no exista en otro producto
-            const codeRepetido = products.find(p => p.code == product.code);
-            if(codeRepetido) {
-                return console.log('The insert code already exist!');
-            };
 
             //metodo para agregar automaticamente un id autoincremental!
             let id;
@@ -43,7 +43,7 @@ class ProductManager {
 
             await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
 
-            return console.log('The product was succesfully added!')
+            return product
 
         } catch (err) {
             console.log(err);
@@ -74,11 +74,11 @@ class ProductManager {
             let resultado = await this.getProducts();
             let product = resultado.find( p => p.id == id );
 
-            //si encuentro un producto con el id ingresado retorno el producto sino un 'not found'
+            //si encuentro un producto con el id ingresado retorno el producto sino un null
             if(product) {
                 return product;
             } else {
-                return { error: `The product with id: ${id}, doesn't exist!` };
+                return null;
             };
         } catch (err) {
             console.log(err);
@@ -93,7 +93,7 @@ class ProductManager {
             
             //si no encontro este producto en nuestro .json retorno que no se encontro este producto
             if(!productToUpdate) {
-                return console.log(`Can't find the product with id: ${product.id}`);
+                return null;
             };
             
             //busco el indice del producto para actualizar, actualizo ese producto, ya sea 1 campo o todos y actualizo el .json
@@ -119,17 +119,17 @@ class ProductManager {
 
             const products = await this.getProducts();
             const indexProduct = products.findIndex( p => p.id === id );
-
             //validacion para ver si encontro el producto, de no ser asi retorna que no encontro el producto con ese id.
             if(indexProduct === -1) {
-                return console.log(`Can't find the product with id: ${id}`);
+                return null;
             };
-
+            
+            const deletedProduct = products[indexProduct]
             //elimino del array el producto que se desea borrar, actualizo el .json y retorno el array sin ese producto 
             products.splice(indexProduct, 1);
             await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
 
-            return products;
+            return deletedProduct;
 
         } catch(err) {
             console.log(err);
