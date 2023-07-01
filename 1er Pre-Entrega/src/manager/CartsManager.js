@@ -1,8 +1,5 @@
 import fs from 'fs';
-import ProductManager from './ProductManager.js';
 import __dirname from '../utils.js';
-
-const manager = new ProductManager(`${__dirname}/files/products.json`)
 
 class CartsManager {
 
@@ -16,15 +13,21 @@ class CartsManager {
                 const data = await fs.promises.readFile(this.path, 'utf-8');
                 const carts = JSON.parse(data);
 
-                let id = carts[carts.length -1].id + 1;
-
-                carts.push({id: id, products: []});
+                const id = carts[carts.length -1].id + 1;
+                const cart = {id: id, products: []}
+                carts.push(cart);
 
                 await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
+
+                return cart
 
             } else {
-                const carts = [{id: 1, products: []}];
+                const cart = {id: 1, products: []};
+                const carts = [cart];
+
                 await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
+                
+                return cart
             }
         } catch(err) {
             console.log(err);
@@ -35,11 +38,11 @@ class CartsManager {
         try {
             const data = await fs.promises.readFile(this.path, 'utf-8');
             const carts = JSON.parse(data);
-            const cartIndex = carts.findIndex( c => c.id === id)
+            const cartIndex = carts.findIndex( c => c.id === id);
 
-            if(cartIndex === -1) return console.log(`Can't find cart whith id: ${id}`)
+            if(cartIndex === -1) return null;
 
-            return carts[cartIndex].products 
+            return carts[cartIndex].products;
             
         } catch(err) {
             console.log(err)
@@ -52,37 +55,26 @@ class CartsManager {
             const carts = JSON.parse(data);
             const cartIndex = carts.findIndex( c => c.id === cid)
 
-            if(cartIndex === -1) return console.log(`Can't find cart whith id: ${cid}`)
-
-            const productData = await manager.getProducts()
-            const existsProductId = productData.find( p => p.id === pid)
-            
-            if(!existsProductId) return console.log(`Can't find product whith id: ${pid}`)
+            if(cartIndex === -1) return null
 
             const cart = carts[cartIndex].products
 
-            if(cart.length === 0) {
+            let sameProduct = cart.find( p => p.product === pid )
+            if(!sameProduct) {
                 cart.push({product: pid, quantity: 1})
                 
                 await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
 
                 return cart
+
             } else {
-                let sameProduct = cart.find( p => p.product === pid )
-                if(!sameProduct){
-                    cart.push({ product :pid, quantity: 1 })
-                
-                    await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
+                const cartIndex = cart.findIndex( p => p.product === pid);
+                cart[cartIndex].quantity = cart[cartIndex].quantity + 1;
+            
+                await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
 
-                    return cart
-                } else {
-                    const cartIndex = cart.findIndex( p => p.product === pid);
-                    cart[cartIndex].quantity = cart[cartIndex].quantity + 1;
-                
-                    await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
+                return cart
 
-                    return cart
-                }
             }
 
         } catch(err) {
