@@ -144,7 +144,7 @@ const arrayProducts = [
         description: "Whiskey Jack Daniel's Old Nº 7 750ml",
         price: 13635,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000001",
         stock: 50
     },
@@ -153,7 +153,7 @@ const arrayProducts = [
         description: 'Whiskey Jameson Black Barrel 700ml',
         price: 10675,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000002",
         stock: 50
     },
@@ -162,7 +162,7 @@ const arrayProducts = [
         description: 'Whisky Chivas Regal Extra 13 Años, con estuche 750ml',
         price: 11136,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000003",
         stock: 50
     },
@@ -171,7 +171,7 @@ const arrayProducts = [
         description: 'Johnnie Walker Black Label 1L',
         price: 13955,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000004",
         stock: 50
     },
@@ -180,7 +180,7 @@ const arrayProducts = [
         description: 'Whiskey Buffalo Trace Bourbon 750ml Kentucky American',
         price: 17100,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000005",
         stock: 50
     },
@@ -189,7 +189,7 @@ const arrayProducts = [
         description: "Ballantine's Blended Scotch Finest 1L",
         price: 6213,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000006",
         stock: 50
     },
@@ -198,7 +198,7 @@ const arrayProducts = [
         description: "Gran Old Parr De Luxe 750ml Scotch Blended",
         price: 9300,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000007",
         stock: 50
     },
@@ -207,7 +207,7 @@ const arrayProducts = [
         description: "Buchanans Deluxe 12 años Scotch Blend 750ml",
         price: 11521,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000008",
         stock: 50
     },
@@ -216,7 +216,7 @@ const arrayProducts = [
         description: "Scapa Skiren Single Malt Scotch 700ml",
         price: 20963,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000009",
         stock: 50
     },
@@ -225,7 +225,7 @@ const arrayProducts = [
         description: "Jim Beam Black Full",
         price: 12126,
         status: true,
-        thumbnail: 'url imagen',
+        thumbnail: ['url imagen'],
         code: "000010",
         stock: 50
     }
