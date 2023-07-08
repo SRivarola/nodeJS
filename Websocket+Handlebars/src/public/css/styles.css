@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Oswald&display=swap');
+
+body{
+    background-color: #161616;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.container__title{
+    text-align: center;
+    font-family: 'Caprasimo';
+    color: white;
+    letter-spacing: 2px;
+}
+
+.cards_container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px 0px;
+    margin-top: 50px;
+}
+
+.card{
+    display: flex;
+    padding: 5px;
+    width: 600px;
+    background-color: white;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 15px;
+} 
+
+.image_container{
+    width: 50%;
+}
+
+.details_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    border-left: solid 1px gray;
+    padding: 10px;
+}
+
+.card_title{
+    font-size: 24px;
+    text-align: center;
+}
+
+.card_description {
+    text-align: center;
+}
+
+.card_price{
+    text-align: center;
+    color: #1b1b80;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-agregar{
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 7px 22px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.form_container{
+    align-self: center;
+    width: 60%;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form_title{
+    text-align: center;
+}
+
+.form_group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label{
+    display: flex;
+    align-items: center;
+}
+
+.label{
+    width: 120px;
+}
+
+input{
+    border: none;
+    border-bottom: #161616 solid 1px;
+    margin-left: 5px;
+    padding: 5px;
+    width: 250px;
+}
+
+input:focus{
+    outline: none;
+    border-bottom: #161616 2px solid;
+}
+
+.text_area{
+    width: 350px;
+    height: 350px;
+}
+
+.btn_set{
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 50px;
+    font-weight: bold;
+    width: 390px;
+    cursor: pointer;
+}
+
+.errorMessage{
+    color: red;
+    text-align: center;
+}
+
+.successfullMessage{
+    color: green;
+    text-align: center;
+}
+
+.select{
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+
+.formGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.confirm_btn_container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn_cancel{
+    padding: 8px 30px;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.btn_delete{
+    padding: 8px 30px;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
