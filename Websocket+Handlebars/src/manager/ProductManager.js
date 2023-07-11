@@ -35,10 +35,10 @@ class ProductManager {
                 id = products[products.length -1].id + 1
             }
 
+            product.id = id
             //pusheo mi producto al array y actualizo el archivo .json
             products.push({
-                ...product,
-                id
+                ...product
             });
 
             await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));

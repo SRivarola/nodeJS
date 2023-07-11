@@ -22,6 +22,7 @@ app.set('view engine', 'handlebars');
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 
+
 app.use('/realtimeproducts', realTimeProducts);
 
 const server = app.listen(8080, console.log('Listening on 8080'));
@@ -29,16 +30,18 @@ const server = app.listen(8080, console.log('Listening on 8080'));
 const io = new Server(server);
 
 io.on('connection', async socket => {
-
+    
     console.log('cliente conectado');
-
+    
     socket.on('dataProduct', async data => {
         const product = await manager.addProduct(data)
+        console.log(product)
         if(product){
             const successfully = `<span id='errorMessage' class='successfullMessage'>Product added successfully!</span>`
+            
             socket.emit('message', successfully)
-            const product = await manager.getProducts()
-            socket.send()
+            socket.emit('product', product)
+            
         } else {
             const errorMessage = `<span id='errorMessage' class='errorMessage'>Something went wrong, try again</span>`
             socket.emit('message', errorMessage)
@@ -54,7 +57,6 @@ io.on('connection', async socket => {
 
     socket.on('deleteData', async data => {
         const product = await manager.deleteProduct(data)
-        console.log(product)
         if(product){
             const deleteMessage = `<span id='errorDeleteMessage' class='successfullMessage'>The product was delete successfully!</span>`
             socket.emit('deleteMessage', deleteMessage)
@@ -65,4 +67,3 @@ io.on('connection', async socket => {
     })
 
 });
-

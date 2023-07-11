@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     let products = await manager.getProducts();
     if(limit) products = products.slice(0, Number(limit));
     // res.send({ status: 'success', payload: products });
+    
     res.render('realTimeProducts', {products})
 });
 

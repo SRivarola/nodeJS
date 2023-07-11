@@ -1,8 +1,8 @@
 <div class="container">
     <h1 class="container__title">Our Whiskey's Selection</h1>
-    <div class="cards_container">
+    <div class="cards_container" id="cards_container">
         {{#each products}}
-        <div class="card">
+        <div class="card" id={{this.id}}>
             <div class="image_container">
                 <img src="/images/{{this.thumbnail.[0]}}" alt={{this.title}}>
     

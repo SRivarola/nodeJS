@@ -60,6 +60,29 @@ function handleSubmit (e) {
 
     })
 
+    socket.on('product', data => {
+        const card = `
+            <div class="card" id=${data.id}>
+                <div class="image_container">
+                    <img src="/images/${data.thumbnail[0]}" alt=${data.title}>
+                </div>
+                <div class="details_container">
+                    <div>
+                        <p class="card_title">${data.title}</p>
+                        <p class="card_description">${data.description}</p>
+                        <p class="card_price">$${this.price}</p>
+                    </div>
+                    <div class="btn_container">
+                        <button class="btn-agregar">AGREGAR AL CARRITO</button>
+                    </div>
+                </div>
+            </div>
+        `
+        const container = document.getElementById('cards_container')
+
+        container.innerHTML += card
+    })
+
 }
 
 socket.on('data', data => {
