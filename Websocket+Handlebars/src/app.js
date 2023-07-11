@@ -37,6 +37,8 @@ io.on('connection', async socket => {
         if(product){
             const successfully = `<span id='errorMessage' class='successfullMessage'>Product added successfully!</span>`
             socket.emit('message', successfully)
+            const product = await manager.getProducts()
+            socket.send()
         } else {
             const errorMessage = `<span id='errorMessage' class='errorMessage'>Something went wrong, try again</span>`
             socket.emit('message', errorMessage)
