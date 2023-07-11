@@ -81,6 +81,13 @@ function handleSubmit (e) {
         const container = document.getElementById('cards_container')
 
         container.innerHTML += card
+
+        const option = `<option value=${data.id}>${data.title}</option>`
+
+        const select = document.getElementById('select')
+
+        select.innerHTML += option
+
     })
 
 }
@@ -163,6 +170,10 @@ async function handleDelete(id) {
                 span.remove();
                 formGroup.innerHTML += btnContainer
             }, 2500);
+        })
+        socket.on('deletedProduct', data => {
+            const card = document.getElementById(`${data.id}`)
+            card.remove()
         })
     } catch (error) {
         console.log(error)

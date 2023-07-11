@@ -94,18 +94,5 @@
 		"status": true,
 		"stock": 50,
 		"id": 10
-	},
-	{
-		"title": "432432",
-		"description": "fesf",
-		"price": 432432,
-		"img": [
-			""
-		],
-		"stock": 432432,
-		"code": "432432",
-		"status": true,
-		"thumbnail": [],
-		"id": 11
 	}
 ]

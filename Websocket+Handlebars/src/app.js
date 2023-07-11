@@ -57,9 +57,11 @@ io.on('connection', async socket => {
 
     socket.on('deleteData', async data => {
         const product = await manager.deleteProduct(data)
+        console.log(product)
         if(product){
             const deleteMessage = `<span id='errorDeleteMessage' class='successfullMessage'>The product was delete successfully!</span>`
             socket.emit('deleteMessage', deleteMessage)
+            socket.emit('deletedProduct', product)
         } else {
             const deleteMessage = `<span id='errorDeleteMessage' class='errorMessage'>Something went wrong, try again!</span>`
             socket.emit('deleteMessage', deleteMessage)
